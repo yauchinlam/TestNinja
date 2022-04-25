@@ -25,7 +25,7 @@ namespace TestNinja.UnitTests
 
         //>= number of execution paths
         //It is not recommended to use a private Math and repeat it. Should use a clean fresh state each time for each test so setup
-        private Math _math;
+        private Fundamentals.Math _math;
         //Setup
         [SetUp]
         public void SetUp()
