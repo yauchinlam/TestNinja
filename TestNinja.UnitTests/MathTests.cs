@@ -12,6 +12,7 @@ namespace TestNinja.UnitTests
     public class MathTests
     {
         [Test]
+        [Ignore("Because I wanted to!")]
         public void Add_WhenCalled_ReturnTheSumOfArguments()
         {
             //Arrange
