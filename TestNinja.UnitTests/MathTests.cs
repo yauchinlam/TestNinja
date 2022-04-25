@@ -34,42 +34,46 @@ namespace TestNinja.UnitTests
         }
 
         //Teardown. You need this a lot for the future integration tests!!!
+        //MsTest does not have solution for parameterized test
         [Test]
-        public void Max_FirstArgumentIsGreater_ReturnTheFirstArgument()
+        [TestCase(2,1,2)]
+        [TestCase(1,2,2)]
+        [TestCase(1,1,1)]
+        public void Max_WhenCalled_ReturnTheGreaterArgument(int a, int b, int expectedResult)
         {
             //Arrange
 
             //Act
-            var result = _math.Max(2, 1);
+            var result = _math.Max(a, b);
 
             //Assert
-            Assert.That(result, Is.EqualTo(2));
+            Assert.That(result, Is.EqualTo(expectedResult));
         }
 
 
-        [Test]
-        public void Max_SecondArgumentIsGreater_ReturnTheSecondArgument()
-        {
-            //Arrange
+        //[Test]
+        //public void Max_SecondArgumentIsGreater_ReturnTheSecondArgument()
+        //{
+        //    //Arrange
             
-            //Act
-            var result = _math.Max(1, 2);
+        //    //Act
+        //    var result = _math.Max(1, 2);
 
-            //Assert
-            Assert.That(result, Is.EqualTo(2));
-        }
+        //    //Assert
+        //    Assert.That(result, Is.EqualTo(2));
+        //}
 
-        [Test]
-        //Black box testing
-        public void Max_ArgumentsAreEqual_ReturnTheSameArgument()
-        {
-            //Arrange
+        //[Test]
+        ////Black box testing
+        //public void Max_ArgumentsAreEqual_ReturnTheSameArgument()
+        //{
+        //    //Arrange
 
-            //Act
-            var result = _math.Max(1, 1);
+        //    //Act
+        //    var result = _math.Max(1, 1);
 
-            //Assert
-            Assert.That(result, Is.EqualTo(1));
-        }
+        //    //Assert
+        //    Assert.That(result, Is.EqualTo(1));
+        //}
     }
 }
