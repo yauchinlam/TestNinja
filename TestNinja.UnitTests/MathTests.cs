@@ -24,15 +24,23 @@ namespace TestNinja.UnitTests
         }
 
         //>= number of execution paths
+        //It is not recommended to use a private Math and repeat it. Should use a clean fresh state each time for each test so setup
+        private Math _math;
+        //Setup
+        [SetUp]
+        public void SetUp()
+        {
+            _math = new Fundamentals.Math();
+        }
 
+        //Teardown. You need this a lot for the future integration tests!!!
         [Test]
         public void Max_FirstArgumentIsGreater_ReturnTheFirstArgument()
         {
             //Arrange
-            var math = new Fundamentals.Math();
 
             //Act
-            var result = math.Max(2, 1);
+            var result = _math.Max(2, 1);
 
             //Assert
             Assert.That(result, Is.EqualTo(2));
@@ -43,10 +51,9 @@ namespace TestNinja.UnitTests
         public void Max_SecondArgumentIsGreater_ReturnTheSecondArgument()
         {
             //Arrange
-            var math = new Fundamentals.Math();
-
+            
             //Act
-            var result = math.Max(1, 2);
+            var result = _math.Max(1, 2);
 
             //Assert
             Assert.That(result, Is.EqualTo(2));
@@ -57,10 +64,9 @@ namespace TestNinja.UnitTests
         public void Max_ArgumentsAreEqual_ReturnTheSameArgument()
         {
             //Arrange
-            var math = new Fundamentals.Math();
 
             //Act
-            var result = math.Max(1, 1);
+            var result = _math.Max(1, 1);
 
             //Assert
             Assert.That(result, Is.EqualTo(1));
