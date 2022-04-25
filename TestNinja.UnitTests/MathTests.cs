@@ -22,5 +22,48 @@ namespace TestNinja.UnitTests
 
             Assert.That(result, Is.EqualTo(3));
         }
+
+        //>= number of execution paths
+
+        [Test]
+        public void Max_FirstArgumentIsGreater_ReturnTheFirstArgument()
+        {
+            //Arrange
+            var math = new Fundamentals.Math();
+
+            //Act
+            var result = math.Max(2, 1);
+
+            //Assert
+            Assert.That(result, Is.EqualTo(2));
+        }
+
+
+        [Test]
+        public void Max_SecondArgumentIsGreater_ReturnTheSecondArgument()
+        {
+            //Arrange
+            var math = new Fundamentals.Math();
+
+            //Act
+            var result = math.Max(1, 2);
+
+            //Assert
+            Assert.That(result, Is.EqualTo(2));
+        }
+
+        [Test]
+        //Black box testing
+        public void Max_ArgumentsAreEqual_ReturnTheSameArgument()
+        {
+            //Arrange
+            var math = new Fundamentals.Math();
+
+            //Act
+            var result = math.Max(1, 1);
+
+            //Assert
+            Assert.That(result, Is.EqualTo(1));
+        }
     }
 }
