@@ -12,16 +12,19 @@ namespace TestNinja.UnitTests
     public class MathTests
     {
         [Test]
-        [Ignore("Because I wanted to!")]
+        //[Ignore("Because I wanted to!")]
         public void Add_WhenCalled_ReturnTheSumOfArguments()
         {
             //Arrange
-            var math = new Fundamentals.Math();
-
+            
             //Act
-            var result = math.Add(1, 2);
+            var result = _math.Add(1, 2);
 
+            //Assert
             Assert.That(result, Is.EqualTo(3));
+            //Assert.That(_math, Is.Not.Null);
+            //When you write test after production create a bug to see if it fails. If it passes then did it wrong
+
         }
 
         //>= number of execution paths
