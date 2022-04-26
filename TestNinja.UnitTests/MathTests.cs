@@ -79,5 +79,36 @@ namespace TestNinja.UnitTests
         //    //Assert
         //    Assert.That(result, Is.EqualTo(1));
         //}
+
+        [Test]
+        //Remember think blackbox three case for ngative number, 0 and positive numbers. Just use one case for example
+        public void GetOddNumbers_LimitIsGreaterThanZero_ReturnOddNumbersUpToLimit()
+        {
+            //Always use array more than one item. try 3 or more
+
+            //Act
+            var result = _math.GetOddNumbers(5);
+
+            //Assert
+            //too general
+            //Assert.That(result, Is.Not.Empty);
+
+            //more specific
+            //Assert.That(result.Count(), Is.EqualTo(3));
+
+            //another examples
+            Assert.That(result, Does.Contain(1));
+            Assert.That(result, Does.Contain(3));
+            Assert.That(result, Does.Contain(5));
+
+            //Do not care about order unless you need your test to be specific
+            Assert.That(result, Is.EquivalentTo(new[] { 1, 3, 5 }));
+            //This is a set equivalent to writing the three separate lines
+
+            //Other assertions to use for ordering and uniqueness
+            //Assert.That(result, Is.Ordered);
+            //Assert.That(result, Is.Unique);
+            //find balance between general and specific
+        }
     }
 }
