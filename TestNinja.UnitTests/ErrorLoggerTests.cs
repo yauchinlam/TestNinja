@@ -61,5 +61,22 @@ namespace TestNinja.UnitTests
             //Assert
             Assert.That(id, Is.Not.EqualTo(Guid.Empty));
         }
+
+        //Do NOT Test Private Methods
+        //Tests bcome coupled to implementation details
+
+        //Test for example of bad private tests that change from private to public for testing
+        //[Test]
+        //public void OnErrorLoged_WhenCalled_RaiseEvent()
+        //{
+        //    //changing private to public will break lot of tests
+        //    var logger = new ErrorLogger();
+
+        //    logger.OnErrorLogged();
+
+        //    Assert.That(true);
+        //}
+
+        //Using too many private methods could be example of fixing and making to private
     }
 }

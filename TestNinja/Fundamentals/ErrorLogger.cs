@@ -7,8 +7,9 @@ namespace TestNinja.Fundamentals
     {
         public string LastError { get; set; }
 
-        public event EventHandler<Guid> ErrorLogged; 
-        
+        public event EventHandler<Guid> ErrorLogged;
+
+        private Guid _errorId;
         public void Log(string error)
         {
             //Three cases
@@ -18,12 +19,17 @@ namespace TestNinja.Fundamentals
             if (String.IsNullOrWhiteSpace(error))
                 throw new ArgumentNullException();
                 
-            LastError = error; 
-            
+            LastError = error;
+
             // Write the log to a storage
             // ...
+            //_errorId = Guid.NewGuid();
+            OnErrorLogged(Guid.NewGuid());
+        }
 
-            ErrorLogged?.Invoke(this, Guid.NewGuid());
+        protected virtual void OnErrorLogged(Guid errorid)
+        {
+            ErrorLogged?.Invoke(this, errorid);
         }
     }
 }
