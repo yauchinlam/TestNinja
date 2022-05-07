@@ -11,6 +11,7 @@ namespace TestNinja.Mocking
     {
         private IFileReader _fileReader;
 
+        //Poor man dependency injection
         public VideoService(IFileReader fileReader = null)
         {
             _fileReader = fileReader ?? new FileReader();
