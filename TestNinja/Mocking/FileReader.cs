@@ -19,4 +19,12 @@ namespace TestNinja.Mocking
             return File.ReadAllText(path);
         }
     }
+
+    public class FakeFileReader: IFileReader
+    {
+        public string Read(string path)
+        {
+            return " ";
+        }
+    }
 }
