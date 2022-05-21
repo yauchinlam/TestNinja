@@ -43,4 +43,4 @@ namespace TestNinja.UnitTests.Mocking
         }
     }
 }
-}
+
